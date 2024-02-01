@@ -21,6 +21,7 @@ import {
 
 import Umami from '@/utils/umami'
 
+import DataLoader from './DataLoader'
 import KeyListener from './KeyListener'
 
 import { extensionManager } from '@/extension'
@@ -75,7 +76,9 @@ const Providers = (props: PropsWithChildren) => {
           <KeyListener>
             <FeatureToggleWrapper>
               <EventListenerWrapper>
-                <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
+                <TooltipProvider delayDuration={0}>
+                  <DataLoader>{children}</DataLoader>
+                </TooltipProvider>
                 {!isMac && <GPUDriverPrompt />}
               </EventListenerWrapper>
               <Toaster />
